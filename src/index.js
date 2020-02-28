@@ -5,25 +5,11 @@ const DIRECTION = {
 let _currentFocus = -1;
 //MVC Pattern. 
 function view(container, model) {
-  //Creating HTML elements of two div
-  //First div contains the input and button and display flex
-  //Second div contains the searched options 
-  let _icon = document.createElement("span")
-  let _inside = document.createElement("div");
-  let _input = document.createElement("input");
-  let _options = document.createElement("div");
-  let _button = document.createElement("button");
-  _icon.setAttribute("class", "ex-search")
-  _inside.setAttribute("class", "inside");
-  _input.setAttribute("type", "text");
-  _options.setAttribute("class", "options");
-  _button.setAttribute("class", "_btn");
-  _button.innerHTML = "X";
-  container.appendChild(_inside);
-  _inside.appendChild(_icon);
-  _inside.appendChild(_input);
-  _inside.appendChild(_button);
-  container.appendChild(_options);
+
+  let _input = document.querySelector("input");
+  let _options = document.querySelector(".options");
+  let _button = document.querySelector("._btn");
+
   _button.style.display = "none";
   //Call fetchData method in the model to get the data 
   let cb = debouce(model.fetchData, 100);
